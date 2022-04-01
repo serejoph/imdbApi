@@ -70,9 +70,9 @@ public class Movie {
 	}
 	@Override
 	public String toString() {
-		return "Movie [imDbRating=" + imDbRating + ", image=" + image + ", fullTitle=" + fullTitle
+		return "Movie [title=" + title + ", imDbRating=" + imDbRating + ", image=" + image + ", fullTitle=" + fullTitle
 				+ ", imDbRatingCount=" + imDbRatingCount + ", year=" + year + ", rank=" + rank + ", id=" + id
-				+ ", title=" + title + ", crew=" + crew + "]";
+				+  ", crew=" + crew + "]";
 	}
 
 	
