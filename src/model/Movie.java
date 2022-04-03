@@ -2,15 +2,35 @@ package model;
 
 public class Movie {
 
-	private Double imDbRating;
-	private String image;
-	private String fullTitle;
-	private Integer imDbRatingCount;
-	private Integer year;
-	private Integer rank;
 	private String id;
+	private Integer rank;
 	private String title;
+	private String fullTitle;
+	private Integer year;
+	private String image;
 	private String crew;
+	private Double imDbRating;
+	private Integer imDbRatingCount;
+	
+	
+	
+	public Movie() {
+	}
+	
+	public Movie(String id, Integer rank, String title, String fullTitle, Integer year, String image, String crew,
+			Double imDbRating, Integer imDbRatingCount) {
+		super();
+		this.id = id;
+		this.rank = rank;
+		this.title = title;
+		this.fullTitle = fullTitle;
+		this.year = year;
+		this.image = image;
+		this.crew = crew;
+		this.imDbRating = imDbRating;
+		this.imDbRatingCount = imDbRatingCount;
+	}
+
 	public Double getImDbRating() {
 		return imDbRating;
 	}
@@ -66,8 +86,8 @@ public class Movie {
 		this.crew = crew;
 	}
 	
-	public Movie() {
-	}
+
+	
 	@Override
 	public String toString() {
 		return "Movie [title=" + title + ", imDbRating=" + imDbRating + ", image=" + image + ", fullTitle=" + fullTitle

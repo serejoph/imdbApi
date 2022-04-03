@@ -3,7 +3,6 @@ package application;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,28 +16,40 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import model.Movie;
+
 public class Program {
 
 	public static void main(String[] args) throws IOException {
 
-		List<String> movies = getMovies();
-		List<String> ids = getField(movies, "id");
-		List<String> ranks = getField(movies, "rank");
-		List<String> titles = getField(movies, "title");
-		List<String> fullTitles = getField(movies, "fullTitle");
-		List<String> year = getField(movies, "year");
-		List<String> images = getField(movies, "image");
-		List<String> crew = getField(movies, "crew");
-		List<String> imDbRating = getField(movies, "imDbRating");
-		List<String> imDbRatingCount = getField(movies, "imDbRatingCount");
-		
-		
-		
-		
-	
-		
-		
-		
+		List<String> movieString = getMovies();
+		List<String> ids = getFieldList(movieString, "id");
+		List<String> ranks = getFieldList(movieString, "rank");
+		List<String> titles = getFieldList(movieString, "title");
+		List<String> fullTitles = getFieldList(movieString, "fullTitle");
+		List<String> year = getFieldList(movieString, "year");
+		List<String> images = getFieldList(movieString, "image");
+		List<String> crew = getFieldList(movieString, "crew");
+		List<String> imDbRating = getFieldList(movieString, "imDbRating");
+		List<String> imDbRatingCount = getFieldList(movieString, "imDbRatingCount");
+
+		List<Movie> movieList = new ArrayList<>();
+
+		for (int i = 0; i < movieString.size(); i++) {
+			Movie mov = new Movie();
+			mov.setId(ids.get(i));
+			mov.setRank(Integer.valueOf(ranks.get(i)));
+			mov.setTitle(titles.get(i));
+			mov.setFullTitle(fullTitles.get(i));
+			mov.setCrew(crew.get(i));
+			mov.setYear(Integer.valueOf(year.get(i)));
+			mov.setImage(images.get(i));
+			mov.setImDbRating(Double.valueOf(imDbRating.get(i)));
+			mov.setImDbRatingCount(Integer.valueOf(imDbRatingCount.get(i)));
+			movieList.add(mov);
+		}
+
+		movieList.forEach(System.out::println);
 
 //		JSONObject jObj = new JSONObject(line);
 //		JSONArray jArr = jObj.getJSONArray("items");
@@ -66,9 +77,9 @@ public class Program {
 		BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String line = br.readLine();
 
-		Pattern p = Pattern.compile("[{]([^{]*)[}]");
+		Pattern p = Pattern.compile("\\{([^{]*)\\}");
 		Matcher m = p.matcher(line);
-	
+
 		List<String> movies = new ArrayList<>();
 
 		while (m.find()) {
@@ -77,19 +88,18 @@ public class Program {
 		return movies;
 	}
 
-	private static List<String> getField(List<String> movies, String field) throws IOException {
+	private static List<String> getFieldList(List<String> movies, String field) throws IOException {
 
 		Pattern p = Pattern.compile(field + "\":\"(.*?)\"");
-		FileWriter fw = new FileWriter("output.txt");
-		List<String> list = new ArrayList<>();
+		List<String> fieldList = new ArrayList<>();
 		for (String s : movies) {
-						
+
 			Matcher m = p.matcher(s);
 			if (m.find()) {
-				list.add(m.group(1));
+				fieldList.add(m.group(1));
 			}
 		}
-
-		return list;
+		return fieldList;
 	}
+
 }
