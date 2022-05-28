@@ -6,6 +6,6 @@ O objetivo do sistema é consumir as APIs fornecidas pelos sites https://www.imd
 
 A proposta do evento é exercitar os fundamentos e recursos fundamentais da linguagem Java, sem o uso de bibliotecas externas.
 
-Após consumir as APIs, o sistema produz uma lista de filmes e histórias em quadrinhos ordenada alfabeticamente e gera uma página HTML com todo o conteúdo.
+Após consumir as APIs, o sistema produz uma lista de filmes e histórias em quadrinhos ordenada alfabeticamente e gera uma página HTML que contém a imagem, o título, o ano de lançamento e o tipo do conteúdo.
 
 O resultado pode ser conferido aqui: https://github.com/serejoph/imdbApi/blob/main/content.html
