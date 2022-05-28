@@ -3,3 +3,9 @@
 Este projeto foi desenvolvido durante o evento 7 Days of Code promovido pela Alura.
 
 O objetivo do sistema é consumir as APIs fornecidas pelos sites https://www.imdb.com/ e https://developer.marvel.com/, a fim de formar um catálogo dos 250 filmes mais bem avaliados e das 100 revistas em quadrinhos lançadas mais recentemente pela Marvel.
+
+A proposta do evento é exercitar os fundamentos e recursos fundamentais da linguagem Java, sem o uso de bibliotecas externas.
+
+Após consumir as APIs, o sistema produz uma lista de filmes e histórias em quadrinhos ordenada alfabeticamente e gera uma página HTML com todo o conteúdo.
+
+O resultado pode ser conferido aqui: https://github.com/serejoph/imdbApi/blob/main/content.html
