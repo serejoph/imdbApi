@@ -1,6 +1,6 @@
-package model;
+package application.model;
 
-public class Movie {
+public class Movie implements Content{
 
 	private String id;
 	private Integer rank;
@@ -95,6 +95,27 @@ public class Movie {
 				+  ", crew=" + crew + "]";
 	}
 
+	@Override
+	public String title() {
+		
+		return this.title;
+	}
+
+	@Override
+	public String urlImage() {
+
+		return this.image;
+	}
+
+	@Override
+	public String year() {
+	
+		return this.year.toString();
+	}
+
+	public String type() {
+		return "Movie";
+	}
 	
 	
 	

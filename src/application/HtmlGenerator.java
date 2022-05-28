@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 
-import model.Movie;
+import application.model.Content;
 
 public class HtmlGenerator {
 
@@ -14,7 +14,7 @@ public class HtmlGenerator {
 		this.writer = writer;
 	}
 
-	public void generateHtml(List<Movie> movies) throws IOException {
+	public void generateHtml(List<? extends Content> contents) throws IOException {
 
 		String head =
 				"<!DOCTYPE html>\r\n"
@@ -29,8 +29,8 @@ public class HtmlGenerator {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(head);
-		for (Movie movie : movies) {
-			sb.append(movieToHtml(movie));
+		for (Content content : contents) {
+			sb.append(movieToHtml(content));
 		}
 		sb.append("</div>\r\n"
 				+ "\r\n"
@@ -42,24 +42,24 @@ public class HtmlGenerator {
 		writer.write(sb.toString());
 	}
 	
-	private String movieToHtml(Movie movie) {
+	private String movieToHtml(Content content) {
 		String card = "<div class=\"card text-white bg-dark mb-3\" style=\"max-width: 540px;\">\r\n"
 				+ "      <div class=\"row g-0\">\r\n"
 				+ "        <div class=\"col-md-4\">\r\n"
 				+ "          <img src=\""
-				+ movie.getImage()
+				+ content.urlImage()
 				+ "\" class=\"img-fluid rounded-start\">\r\n"
 				+ "        </div>\r\n"
 				+ "        <div class=\"col-md-8\">\r\n"
 				+ "          <div class=\"card-body\">\r\n"
 				+ "            <h5 class=\"card-title\">"
-				+ movie.getTitle()
+				+ content.title()
 				+ "</h5>\r\n"
 				+ "            <p class=\"card-text\">"
-				+"Nota: "
-				+ movie.getImDbRating()
-				+" - Ano: "
-				+ movie.getYear()
+				+"Ano: "
+				+ content.year()
+				+"</br>Tipo: "
+				+ content.type()
 				+ "</p>\r\n"
 				+ "          \r\n"
 				+ "          </div>\r\n"
