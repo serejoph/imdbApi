@@ -8,4 +8,4 @@ A proposta do evento é exercitar os fundamentos e recursos fundamentais da ling
 
 Após consumir as APIs, o sistema produz uma lista de filmes e histórias em quadrinhos ordenada alfabeticamente e gera uma página HTML que contém a imagem, o título, o ano de lançamento e o tipo do conteúdo.
 
-O resultado pode ser conferido aqui: [https://github.com/serejoph/imdbApi/blob/main/content.html](https://desafio-backend-phsn.herokuapp.com/static/content.html)
+O resultado produzido em maio de 2022 pode ser conferido aqui: https://desafio-backend-phsn.herokuapp.com/static/content.html
